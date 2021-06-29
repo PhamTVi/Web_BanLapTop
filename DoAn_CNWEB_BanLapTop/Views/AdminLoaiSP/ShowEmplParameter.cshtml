@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "ShowEmplParameter";
+    Layout = "~/Views/Share/LayOutAdmin.cshtml";
+}
+@model IEnumerable<DoAn_CNWEB_BanLapTop.Models.SanPham>
+<body class="container">
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>Tên Sản Phẩm
+            </th>
+            <th>Giá
+            </th>
+            <th>Ảnh Bìa
+            </th>
+            <th>Số Lượng Tồn
+            </th>
+            <th>Mã Nhà Sản Xuất
+            </th>
+            <th>Mã Loại
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenSanPham)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gia)
+                </td>
+                <td>
+                    <img src="~/Images/@Html.DisplayFor(modelItem => item.AnhBia)" style="width:50px"/>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoLuongTon)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaNSX)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaLoai)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.MaSanPham }) |
+                @Html.ActionLink("Details", "DetailsEmpDept", new { id = item.MaSanPham }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MaSanPham })
+                </td>
+            </tr>
+        }
+
+    </table>
+    <div>
+        @Html.ActionLink("Back to List", "sideBarDept")
+    </div>
+</body>

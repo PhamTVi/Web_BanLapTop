@@ -1,0 +1,11 @@
+﻿@{
+    ViewBag.Title = "hienThiLoaiSP";
+    Layout = "~/Views/Share/LayOutAdmin.cshtml";
+}
+@model IEnumerable<DoAn_CNWEB_BanLapTop.Models.Loai>
+<ul>
+@foreach (var item in Model)
+    {
+        <li>@Html.ActionLink(item.TenLoai, "ShowEmplParameter", "AdminLoaiSP", new { id=item.MaLoai },null)</li>
+    }
+</ul>

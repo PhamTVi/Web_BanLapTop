@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "LayOutAdmin";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>QLSanPham</title>
+    <link rel="stylesheet" href="~/Content/layout-home.css" type="text/css" />
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Header -->
+        <header>
+            <div class="banner">
+                <img src="~/Content/banner.jpg" alt="banner" />
+            </div>
+            <div class="navigator">
+                <div class="navigator-content">
+                    @Html.ActionLink("Loại Sản Phẩm", "Index", "Deparment")
+                    @Html.ActionLink("Tin Tức", "ShowSP", "Home")
+                </div>
+            </div>
+            </head>
+		<div class="line-20"></div>
+            <!-- Content -->
+            <content>
+			<div class="left-content">		
+				<div class="category">
+					<div class="category-left-title">
+						category
+					</div>
+                     @Html.Action("hienThiLoaiSP", "AdminLoaiSP")
+				</div>
+			</div>
+			
+			<div class="right-content">
+                @RenderBody()				
+			</div>
+			<div class="line-20"></div>
+		</content>
+
+            <!-- Footer -->
+            <footer>
+                <p>
+                    &copy; 2016 Handsomeroot's Blog. Design by Handsomeroot
+                </p>
+            </footer>
+    </div>
+</body>
+</html>
+
